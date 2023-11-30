@@ -3,7 +3,7 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST, 
+  DB_USER, DB_PASSWORD, DB_HOST, DB_DEPLOY
 } = process.env;
 //requiero los modelos creados en models
 const modelDog = require("./models/Dog");
@@ -11,8 +11,7 @@ const modelTemperament = require("./models/Temperament");
 
 const sequelize = new Sequelize(
   // `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/dogs`, 
-  `postgres://postgres:d6d55*5cD5eCG4A*d3EcDegE2AbddGF1@roundhouse.proxy.rlwy.net:45396/railway`,
-{
+  DB_DEPLOY, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
